@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Quiz</title>
+</head>
+<body>
+    <p>New Quiz</p>
+    <form th:action="@{/products/newproduct}" method="post" th:object="${newProduct}">
+        <label>Title</label>
+        <input th:type="text" th:field="*{title}" />
+        <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</div>
+        <br />
+        <button th:type="submit">Add Quiz</button>
+    </form>
+</body>
+</html>
