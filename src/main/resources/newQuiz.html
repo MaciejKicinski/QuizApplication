@@ -8,11 +8,35 @@
 </head>
 <body>
     <p>New Quiz</p>
-    <form th:action="@{/products/newproduct}" method="post" th:object="${newProduct}">
+    <form th:action="@{/quiz/newquiz}" method="post" th:object="${newQuiz}">
         <label>Title</label>
         <input th:type="text" th:field="*{title}" />
-        <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</div>
         <br />
+		<br />
+		<label>Description</label>
+        <input th:type="text" th:field="*{description}" />
+        <br />
+		<br />
+        <label>Question</label>
+        <input th:type="number" th:field="*{question}" />
+        <br />
+		<br />
+		<label>Wrong answer one</label>
+        <input th:type="text" th:field="*{wrongAnswerOne}" />
+        <br />
+		<br />
+		<label>Wrong answer two</label>
+        <input th:type="text" th:field="*{wrongAnswerTwo}" />
+        <br />
+		<br />
+		<label>Wrong answer three</label>
+        <input th:type="text" th:field="*{wrongAnswerThree}" />
+        <br />
+		<br />
+		<label>Correct answer</label>
+        <input th:type="text" th:field="*{correctAnswer}" />
+        <br />
+		<br />
         <button th:type="submit">Add Quiz</button>
     </form>
 </body>
