@@ -10,6 +10,7 @@
 <form th:action="@{/home/newquiz}" method="post" th:object="${newQuiz}">
     <label>Name</label>
     <input th:type="text" th:field="*{title}" />
+    <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}">title Error</div>
     <br />
     <label>Description</label>
     <input th:type="text" th:field="*{description}" />
