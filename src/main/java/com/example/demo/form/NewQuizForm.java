@@ -1,19 +1,13 @@
-package com.example.demo.dto;
+package com.example.demo.form;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.time.LocalDate;
-
 @Getter
 @Setter
-@AllArgsConstructor
 @ToString
-public class QuizDTO {
-
-    private long idQuiz;
+public class NewQuizForm {
     private String title;
     private String description;
     private String question;
@@ -21,6 +15,4 @@ public class QuizDTO {
     private String wrongAnswerTwo;
     private String wrongAnswerThree;
     private String correctAnswer;
-    private LocalDate creationDate;
-
 }
