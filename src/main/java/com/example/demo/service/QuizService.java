@@ -1,32 +1,68 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.QuizDTO;
+import com.example.demo.entity.Category;
+import com.example.demo.entity.QuestionEntity;
 import com.example.demo.form.NewQuizForm;
+import com.example.demo.repository.QuestionRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.PushBuilder;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class QuizService {
 
-    private List<QuizDTO> quizzes = new ArrayList<>();
-    private long id = 0;
+    private QuestionRepository questionRepository;
 
-    @PostConstruct
-    void init() {
-        quizzes.add(new QuizDTO(id++, "firstQuiz", "quiz about java",
-                " It's possible to implement a method in interface?",
-                "no", "hell no", "yes",
-                "I don't know", LocalDate.now()));
+    public QuizService(QuestionRepository questionRepository) {
+        this.questionRepository = questionRepository;
     }
 
-    public void addQuiz(NewQuizForm form) {
-        QuizDTO quizDTO = new QuizDTO(id++, form.getTitle(), form.getQuestion(), form.getDescription(), form.getWrongAnswerOne(),
-                form.getWrongAnswerTwo(), form.getWrongAnswerThree(), form.getCorrectAnswer(), LocalDate.now());
-        quizzes.add(quizDTO);
+    public String getQuizService() {
+        List<QuestionEntity> all = questionRepository.findAll();
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("MixedQuestionsQuiz: <br>");
+        Set<QuestionEntity> quizSet = new HashSet<>(all);
+        quizSet.stream()
+                .limit(5)
+                .collect(Collectors.toList())
+                .forEach(questionEntity -> stringBuilder
+                        .append(questionEntity.getId())
+                        .append(": pytanie: ")
+                        .append(questionEntity.getContent())
+                        .append(": prawidlowa odpowiedź   ")
+                        .append(questionEntity.getTrueAnswer())
+                        .append("<br>"));
+        System.out.println("method: getQuiz");
+        return stringBuilder.toString();
     }
-
+    public String getQuizByCategoryService(String category) {
+        Category searchedCategory = Category.valueOf(category.trim().toUpperCase());
+        List<QuestionEntity> quizFilteredByCategory = questionRepository
+                .findAll()
+                .stream()
+                .filter(question -> question.getCategory() == searchedCategory).collect(Collectors.toList());
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("randomowe pytania: <br>");
+        Set<QuestionEntity> quizSet = new HashSet<QuestionEntity>(quizFilteredByCategory);
+        quizSet.stream()
+                .limit(5)
+                .collect(Collectors.toList())
+                .forEach(question -> stringBuilder
+                        .append(question.getId())
+                        .append(": pytanie: ")
+                        .append(question.getContent())
+                        .append(": prawidlowa odpowiedź   ")
+                        .append(question.getTrueAnswer())
+                        .append("<br>"));
+        System.out.println("method: getQuiz");
+        return stringBuilder.toString();
+    }
 }
