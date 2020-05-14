@@ -1,13 +1,16 @@
 package com.example.demo.service;
 
+import com.example.demo.dto.QuestionDTO;
 import com.example.demo.entity.Category;
 import com.example.demo.entity.QuestionEntity;
+import com.example.demo.mapper.ModelMapper;
 import com.example.demo.repository.QuestionRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class QuestionService {
@@ -36,18 +39,10 @@ public class QuestionService {
         questionRepository.save(question7);
     }
 
-    public String getAllQuestionsService() {
-        List<QuestionEntity> all = questionRepository.findAll();
-        StringBuilder stringBuilder = new StringBuilder();
-        all.forEach(questionEntity -> stringBuilder
-                .append(questionEntity.getId())
-                .append(questionEntity.getContent())
-                .append(questionEntity.getAnswer1())
-                .append(questionEntity.getAnswer2())
-                .append(questionEntity.getAnswer3())
-                .append(questionEntity.getTrueAnswer())
-                .append(questionEntity.getCategory()));
-        return stringBuilder.toString();
+    public List<QuestionDTO> getAllQuestionsService() {
+        return questionRepository.findAll().stream()
+                .map(ModelMapper::map)
+                .collect(Collectors.toList());
     }
 
     public String getOneQuestionByIdService(String id) {

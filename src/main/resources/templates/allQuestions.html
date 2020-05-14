@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>>
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+<p th:text="${message}"/>
+<th:block th:each="question : ${questions}">
+    <tr>
+        <td th:text="${question.id}"></td>
+        <td th:text="${question.content}"></td>
+    </tr>
+</th:block>
+</body>
+</html>
