@@ -1,16 +1,10 @@
 package com.example.demo.service;
 
-import com.example.demo.dto.QuizDTO;
 import com.example.demo.entity.Category;
 import com.example.demo.entity.QuestionEntity;
-import com.example.demo.form.NewQuizForm;
 import com.example.demo.repository.QuestionRepository;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
-import javax.servlet.http.PushBuilder;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;

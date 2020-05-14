@@ -30,6 +30,9 @@ public class QuestionService {
         QuestionEntity question5 = new QuestionEntity("pytanie 5", "odp1", "odp2", "odp3", "odp3", Category.JAVA);
         QuestionEntity question6 = new QuestionEntity("pytanie 6", "odp1", "odp2", "odp3", "odp3", Category.HISTORY);
         QuestionEntity question7 = new QuestionEntity("pytanie 7", "odp1", "odp2", "odp3", "odp3", Category.GEOGRAPHY);
+        QuestionEntity question8 = new QuestionEntity("Wojciech Stawowy czy Wojciech Schabowy kto prowadzil miedzy innymi Arke i Cracovie?", "odp1", "odp2", "odp3", "odp3", Category.COOKING);
+        QuestionEntity question9 = new QuestionEntity("Ja to sie nie wpierdalam czy nie wpraszam? Jak swoja szkoleniowa taktyke opisywal Pawel Janas", "odp1", "odp2", "odp3", "odp3", Category.SAVOIR_VIVRE);
+        QuestionEntity question10 = new QuestionEntity("Franciszek Smuda to trener skuteczny. Zapowiedzial walke o spadek i rzeczywiscie spadl. Z jakim klubem?", "Arka Gdynia", "Łks", "odp3", "odp3", Category.POLISH_LANGUAGE);
         questionRepository.save(question1);
         questionRepository.save(question2);
         questionRepository.save(question3);
@@ -37,6 +40,9 @@ public class QuestionService {
         questionRepository.save(question5);
         questionRepository.save(question6);
         questionRepository.save(question7);
+        questionRepository.save(question8);
+        questionRepository.save(question9);
+        questionRepository.save(question10);
     }
 
     public List<QuestionDTO> getAllQuestionsService() {
