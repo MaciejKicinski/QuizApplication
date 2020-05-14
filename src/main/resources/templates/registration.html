@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/layout"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.ultraq.net.nz/thymeleaf/layout ">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="container">
+        <p th:text="${message}" />
+        <form th:action="@{/registration}" method="post" th:object="${form}">
+            <label>Login</label>
+            <input th:type="text" th:field="*{login}"/>
+            <div th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Name Error</div>
+            <br/>
+            <label>Password</label>
+            <input th:type="text" th:field="*{password}"/>
+            <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Name Error</div>
+            <br/>
+            <label>Repeated password</label>
+            <input th:type="text" th:field="*{repeatedPassword}"/>
+            <div th:if="${#fields.hasErrors('repeatedPassword')}" th:errors="*{repeatedPassword}">Repeated password
+            </div>
+            <br/>
+            <label>Username</label>
+            <input th:type="text" th:field="*{userName}"/>
+            <div th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">User name</div>
+            <br/>
+            <button th:type="submit">Sign in</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
