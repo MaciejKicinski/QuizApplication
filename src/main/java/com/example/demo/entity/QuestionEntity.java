@@ -1,6 +1,5 @@
 package com.example.demo.entity;
 
-import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
