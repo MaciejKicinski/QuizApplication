@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
+@RequestMapping("/questions")
 public class QuestionControler {
 
     QuestionService questionService;
@@ -17,6 +18,7 @@ public class QuestionControler {
         this.questionService = questionService;
     }
 
+    //model.addAttribute
     @RequestMapping("/getAllQuestions")
     public ModelAndView getAllQuestions() {
         ModelAndView mnv = new ModelAndView("allQuestions");
