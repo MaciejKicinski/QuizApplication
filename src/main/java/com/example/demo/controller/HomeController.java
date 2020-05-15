@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/")
 public class HomeController {
 
 
@@ -45,6 +44,6 @@ public class HomeController {
             modelAndView.addObject("message", e.getMessage());
             return modelAndView;
         }
-        return new ModelAndView("redirect:/quiz");
+        return new ModelAndView("redirect:/questions/getAllQuestions");
     }
 }
