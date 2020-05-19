@@ -1,17 +1,16 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org"
-	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <head>
-	<meta charset="utf-8"/>
-	<title>Login</title>
-	<meta name="description" content="Login" />
+	<meta charset="UTF-8">
+	<title>Add quiz</title>
+	<meta name="description" content="Add quiz" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<link rel="stylesheet" th:href="@{/style/style.css}" type="text/css" />
 </head>
 
-	
 <body>
 	<div id="container">
 		<div id="pasek">
@@ -24,26 +23,28 @@
 				<div style="clear: both;"></div>
 			</div>
 		</div>
-	
-	
 		<div class="wall">
-			<div class="windowlog">
-                <form method="post">
-                    <label>User</label>
-                    <input type="text"/>
-                    <br /><br />
-                    <label>Password</label>
-                    <input type="password"/>
-                    <br /><br />
-                    <button type="submit">Log in</button>
-                </form>
-            </div>
+			<div class="new">
+				New Quiz
+			</div>
+			<div class="window">
+				<form th:action="@{/quiz/newquiz}" method="post" th:object="${newQuiz}">
+					<label>Title</label>
+					<input th:type="text" th:field="*{title}" />
+					<br />
+					<br />
+					<label>Description</label>
+					<input th:type="text" th:field="*{description}" />
+					<br />
+					<br />
+					<button th:type="submit"><a href ="questionOne.html" class="startlink">Next</a></button>
+				</form>
+			</div>
 		</div>
-		<div class="footer">
+	</div>
+	<div class="footer">
 		The property of &copy; Igor & Maciek & Pavel
-		</div>
 	</div>
 </body>
 
 </html>
-

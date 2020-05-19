@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-@RequestMapping("/questions")
+@RequestMapping
 public class QuestionControler {
 
     QuestionService questionService;
@@ -19,7 +19,7 @@ public class QuestionControler {
     }
 
     //model.addAttribute
-    @RequestMapping("/getAllQuestions")
+    @RequestMapping("/allQuestions")
     public ModelAndView getAllQuestions() {
         ModelAndView mnv = new ModelAndView("allQuestions");
         List<QuestionDTO> questions = questionService.getAllQuestionsService();
@@ -28,4 +28,12 @@ public class QuestionControler {
         return mnv;
     }
 
+    @RequestMapping("/quizFilm")
+    public ModelAndView getAllQuestions2() {
+        ModelAndView mnv = new ModelAndView("quizFilm");
+        List<QuestionDTO> questions = questionService.getAllQuestionsService();
+        mnv.addObject("questions", questions);
+        mnv.addObject("message", "Wszystkie pytania");
+        return mnv;
+    }
 }

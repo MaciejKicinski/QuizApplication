@@ -21,7 +21,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     private final String[] MATCHERS = {"/", "/quiz", "/login", "/h2/**",
-            "/registration","/questions/getAllQuestions"};
+            "/registration","/questions/getAllQuestions","/quizFilm","/questions/quizFilm","/getAllQuestions",
+    "/static/style/","/style/","/style/style.css","/img/quiz.jpg","/img/"};
 
     @Bean
     PasswordEncoder passwordEncoder() {
