@@ -27,22 +27,28 @@
 	
 		<div class="wall">
 			<div class="windowreg">
-                    <form method="post">
-                        <label>Login</label>
-                        <input type="text"/>
-                        <br /><br />
-                        <label>Password</label>
-                        <input type="text"/>
-                        <br /><br />
-						<label>Repeated password</label>
-                        <input type="text"/>
-                        <br /><br />
-						<label>Username</label>
-                        <input type="text"/>
-                        <br /><br />
-                        <button type="submit">Sign in</button>
-                    </form>
-                </div>
+                <p th:text="${message}" />
+				<form th:action="@{/registration}" method="post" th:object="${form}">
+				<label>Login</label>
+					<input th:type="text" th:field="*{login}"/>
+					<div th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Name Error</div>
+					<br/>
+					<label>Password</label>
+					<input th:type="text" th:field="*{password}"/>
+					<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Name Error</div>
+					<br/>
+					<label>Repeated password</label>
+					<input th:type="text" th:field="*{repeatedPassword}"/>
+					<div th:if="${#fields.hasErrors('repeatedPassword')}" th:errors="*{repeatedPassword}">Repeated password
+					</div>
+					<br/>
+					<label>Username</label>
+					<input th:type="text" th:field="*{userName}"/>
+					<div th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">User name</div>
+					<br/>
+					<button th:type="submit">Sign in</button>
+                </form>
+            </div>
 		</div>
 		<div class="footer">
 		The property of &copy; Igor & Maciek & Pavel

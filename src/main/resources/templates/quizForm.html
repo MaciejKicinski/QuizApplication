@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+    <meta charset="utf-8"/>
+    <title>Quizy i ankiety</title>
+    <meta name="description" content="Quizzes and questionnaire forms service"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+    <link rel="stylesheet" th:href="@{/style/style.css}" type="text/css"/>
+</head>
+
+
+<body>
+<div id="container">
+    <div id="pasek">
+        <div id="nav">
+            <div class="logo"><h1>Quizzes and answers</h1></div>
+            <div class="menu"><a th:href="@{/home}" class="startlink">Home</a></div>
+            <div class="menu"><a th:href="@{/addQuiz}" class="startlink">Add quiz</a></div>
+            <div class="menu"><a th:href="@{/registration}" class="startlink">Register</a></div>
+            <div class="menu"><a th:href="@{/login}" class="startlink">Log in</a></div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+
+    <div class="wall">
+        <div class="window">
+            <div class="content">
+                <form th:action="@{/quiz/results/}" method="post">
+                    <th:block th:each="question : ${questions}">
+                        <tr>
+                            <td th:text="${question.id}"></td>
+                            <td th:text="${question.content}"></td>
+                            <br/>
+                        </tr>
+                        <input type="radio"
+                               th:name="${question.id}"
+                               th:value="${question.answer1}"/>
+                        <label th:text="${question.answer1}"
+                               for="defaultChecked"></label>
+                        <br/>
+                        <input type="radio"
+                               th:name="${question.id}"
+                               th:value="${question.answer2}"/>
+                        <label th:text="${question.answer2}"
+                               for="defaultChecked"></label>
+                        <br/>
+                        <input id="defaultChecked" type="radio"
+                               th:name="${question.id}"
+                               th:value="${question.answer3}"/>
+                        <label th:text="${question.answer3}"
+                               for="defaultChecked"></label>
+                        <br/>
+                        </tr>
+                    </th:block>
+                    <input type="submit" class="btn btn-primary mt-2 mb-4" value="Submit">
+                </form>
+                <br/>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    The property of &copy; Igor & Maciek & Pavel
+</div>
+</body>
+
+</html>
+

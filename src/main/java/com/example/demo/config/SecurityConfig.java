@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final String[] MATCHERS = {"/", "/quiz", "/login", "/h2/**",
             "/registration","/questions/getAllQuestions","/quizFilm","/questions/quizFilm","/getAllQuestions",
-    "/static/style/","/style/","/style/style.css","/img/quiz.jpg","/img/"};
+    "/static/style/","/style/","/style/style.css","/img/quiz.jpg","/img/","/quizForm"};
 
     @Bean
     PasswordEncoder passwordEncoder() {
@@ -44,7 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login")
                 .usernameParameter("username")
                 .passwordParameter("password")
-                .defaultSuccessUrl("/quiz")
+                .defaultSuccessUrl("/quizForm")
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))

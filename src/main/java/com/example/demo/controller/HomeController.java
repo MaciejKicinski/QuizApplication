@@ -44,6 +44,6 @@ public class HomeController {
             modelAndView.addObject("message", e.getMessage());
             return modelAndView;
         }
-        return new ModelAndView("redirect:/questions/getAllQuestions");
+        return new ModelAndView("redirect:/login");
     }
 }

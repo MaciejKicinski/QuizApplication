@@ -19,21 +19,19 @@ public class QuestionControler {
     }
 
     //model.addAttribute
-    @RequestMapping("/allQuestions")
+    @RequestMapping("/quizForm")
     public ModelAndView getAllQuestions() {
-        ModelAndView mnv = new ModelAndView("allQuestions");
+        ModelAndView mnv = new ModelAndView("quizForm");
         List<QuestionDTO> questions = questionService.getAllQuestionsService();
         mnv.addObject("questions", questions);
-        mnv.addObject("message", "Wszystkie pytania");
         return mnv;
     }
 
-    @RequestMapping("/quizFilm")
+    @RequestMapping("/allQuestions")
     public ModelAndView getAllQuestions2() {
-        ModelAndView mnv = new ModelAndView("quizFilm");
+        ModelAndView mnv = new ModelAndView("allQuestions");
         List<QuestionDTO> questions = questionService.getAllQuestionsService();
         mnv.addObject("questions", questions);
-        mnv.addObject("message", "Wszystkie pytania");
         return mnv;
     }
 }

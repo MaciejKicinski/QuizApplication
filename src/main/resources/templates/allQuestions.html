@@ -7,7 +7,6 @@
     <title>Page</title>
 </head>
 <body>
-<p th:text="${message}"/>
 <th:block th:each="question : ${questions}">
     <tr>
         <td th:text="${question.id}"></td>

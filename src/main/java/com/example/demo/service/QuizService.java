@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -58,5 +59,9 @@ public class QuizService {
                         .append("<br>"));
         System.out.println("method: getQuiz");
         return stringBuilder.toString();
+    }
+
+    public int evaluateAnswers(Map<String, String> allParameters) {
+        return 5;
     }
 }
