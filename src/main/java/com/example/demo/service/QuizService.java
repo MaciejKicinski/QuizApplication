@@ -62,6 +62,8 @@ public class QuizService {
     }
 
     public int evaluateAnswers(Map<String, String> allParameters) {
+        System.out.println(allParameters.get(1));
+        System.out.println(allParameters.get(2));
         return 5;
     }
 }

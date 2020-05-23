@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.exception.UserExistsException;
 import com.example.demo.form.UserRegisterForm;
 import com.example.demo.service.UserService;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -22,6 +23,10 @@ public class HomeController {
         this.userService = userService;
     }
 
+    @GetMapping("/home")
+    public String getHomePage() {
+        return "/home";
+    }
 
     @GetMapping("/registration")
     public ModelAndView getUserFormPage() {
