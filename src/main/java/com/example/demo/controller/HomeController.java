@@ -25,6 +25,8 @@ public class HomeController {
 
     @GetMapping("/home")
     public String getHomePage() {
+
+        System.out.println("dziala controler home");
         return "/home";
     }
 

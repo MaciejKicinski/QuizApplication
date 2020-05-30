@@ -51,19 +51,15 @@ public class QuestionService {
                 .collect(Collectors.toList());
     }
 
-    public String getOneQuestionByIdService(String id) {
+    //fix ifPresent optional
+    public QuestionDTO getOneQuestionByIdService(String id) {
         Optional<QuestionEntity> optionalQuestion = questionRepository.findById(Long.parseLong(id.trim()));
-        StringBuilder stringBuilder = new StringBuilder();
-        if (optionalQuestion.isPresent()) {
-            QuestionEntity question = optionalQuestion.get();
-            stringBuilder.append(question.getId()).append(":  pytanie: ")
-                    .append(question.getContent()).append(", odpowiedzi: <br>")
-                    .append(question.getAnswer1()).append(" <br>")
-                    .append(question.getAnswer2()).append(" <br>")
-                    .append(question.getAnswer3()).append(" <br>")
-                    .append(" prawidlowa odp: ").append(question.getTrueAnswer());
-        }
-        return stringBuilder.toString();
+        QuestionEntity questionEntity = optionalQuestion.get();
+        return ModelMapper.map(questionEntity);
+    }
+
+    public Boolean compereAnswer(String answer, String correctAnswer) {
+        return answer.equals(correctAnswer);
     }
 
 

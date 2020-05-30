@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import com.example.demo.repository.QuestionRepository;
 import com.example.demo.service.QuizService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,11 +11,9 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/quiz")
 public class QuizController {
 
     private final QuizService quizService;
-
     public QuizController(QuizService quizService) {
         this.quizService = quizService;
     }
@@ -27,11 +24,11 @@ public class QuizController {
         return new ResponseEntity(responseString, HttpStatus.OK);
     }
 
-    @PostMapping("/results")
-    private String evaluateAnswers (@RequestParam Map<String,String> allParameters, ModelAndView model) {
+    @PostMapping("/quiz/results")
+    public String getResult (@RequestParam Map<String,String> allParameters, Model model) {
       int correctAnswers=quizService.evaluateAnswers(allParameters);
-        model.addObject("correctAnswers",correctAnswers);
-        return "/evaluate";
+        model.addAttribute("correctAnswers",correctAnswers);
+        return "evaluate";
     }
 
     @RequestMapping("/{category}")

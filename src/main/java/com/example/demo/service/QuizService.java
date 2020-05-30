@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.dto.QuestionDTO;
 import com.example.demo.entity.Category;
 import com.example.demo.entity.QuestionEntity;
 import com.example.demo.repository.QuestionRepository;
@@ -15,9 +16,11 @@ import java.util.stream.Collectors;
 public class QuizService {
 
     private QuestionRepository questionRepository;
+    private QuestionService questionService;
 
-    public QuizService(QuestionRepository questionRepository) {
+    public QuizService(QuestionRepository questionRepository, QuestionService questionService) {
         this.questionRepository = questionRepository;
+        this.questionService = questionService;
     }
 
     public String getQuizService() {
@@ -38,6 +41,7 @@ public class QuizService {
         System.out.println("method: getQuiz");
         return stringBuilder.toString();
     }
+
     public String getQuizByCategoryService(String category) {
         Category searchedCategory = Category.valueOf(category.trim().toUpperCase());
         List<QuestionEntity> quizFilteredByCategory = questionRepository
@@ -62,8 +66,15 @@ public class QuizService {
     }
 
     public int evaluateAnswers(Map<String, String> allParameters) {
-        System.out.println(allParameters.get(1));
-        System.out.println(allParameters.get(2));
-        return 5;
+        int counter = 0;
+        for (Map.Entry<String, String> entry : allParameters.entrySet()) {
+            QuestionDTO questionDTO = questionService.getOneQuestionByIdService(entry.getKey());
+           if (questionService.compereAnswer(entry.getValue(), questionDTO.getTrueAnswer())){
+               counter++;
+           };
+            System.out.println(entry.getKey() + "/" + entry.getValue());
+        }
+        System.out.println("number of correct answers: " + counter);
+        return counter;
     }
 }
