@@ -10,11 +10,11 @@ import java.util.List;
 
 @Controller
 @RequestMapping
-public class QuestionControler {
+public class QuestionController {
 
     QuestionService questionService;
 
-    public QuestionControler(QuestionService questionService) {
+    public QuestionController(QuestionService questionService) {
         this.questionService = questionService;
     }
 

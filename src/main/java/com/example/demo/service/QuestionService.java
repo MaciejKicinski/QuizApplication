@@ -47,7 +47,7 @@ public class QuestionService {
 
     public List<QuestionDTO> getAllQuestionsService() {
         return questionRepository.findAll().stream()
-                .map(ModelMapper::map)
+                .map(ModelMapper::mapQuestionEntityToQuestionDto)
                 .collect(Collectors.toList());
     }
 
@@ -55,7 +55,7 @@ public class QuestionService {
     public QuestionDTO getOneQuestionByIdService(String id) {
         Optional<QuestionEntity> optionalQuestion = questionRepository.findById(Long.parseLong(id.trim()));
         QuestionEntity questionEntity = optionalQuestion.get();
-        return ModelMapper.map(questionEntity);
+        return ModelMapper.mapQuestionEntityToQuestionDto(questionEntity);
     }
 
     public Boolean compereAnswer(String answer, String correctAnswer) {

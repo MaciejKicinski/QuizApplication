@@ -36,7 +36,4 @@ public class QuizController {
         String responseString = quizService.getQuizByCategoryService(category);
         return new ResponseEntity(responseString, HttpStatus.OK);
     }
-
-
-
 }
