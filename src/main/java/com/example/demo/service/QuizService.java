@@ -3,13 +3,11 @@ package com.example.demo.service;
 import com.example.demo.dto.QuestionDTO;
 import com.example.demo.entity.Category;
 import com.example.demo.entity.QuestionEntity;
+import com.example.demo.mapper.ModelMapper;
 import com.example.demo.repository.QuestionRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -23,46 +21,17 @@ public class QuizService {
         this.questionService = questionService;
     }
 
-    public String getQuizService() {
-        List<QuestionEntity> all = questionRepository.findAll();
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("MixedQuestionsQuiz: <br>");
-        Set<QuestionEntity> quizSet = new HashSet<>(all);
-        quizSet.stream()
-                .limit(5)
-                .collect(Collectors.toList())
-                .forEach(questionEntity -> stringBuilder
-                        .append(questionEntity.getId())
-                        .append(": pytanie: ")
-                        .append(questionEntity.getContent())
-                        .append(": prawidlowa odpowiedź   ")
-                        .append(questionEntity.getTrueAnswer())
-                        .append("<br>"));
-        System.out.println("method: getQuiz");
-        return stringBuilder.toString();
-    }
-
-    public String getQuizByCategoryService(String category) {
+    public Set<QuestionDTO> getQuizByCategoryService(String category) {
         Category searchedCategory = Category.valueOf(category.trim().toUpperCase());
-        List<QuestionEntity> quizFilteredByCategory = questionRepository
+        Set<QuestionEntity> quizSet = questionRepository
                 .findAll()
                 .stream()
-                .filter(question -> question.getCategory() == searchedCategory).collect(Collectors.toList());
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("randomowe pytania: <br>");
-        Set<QuestionEntity> quizSet = new HashSet<QuestionEntity>(quizFilteredByCategory);
-        quizSet.stream()
+                .filter(question -> question.getCategory() == searchedCategory).collect(Collectors.toSet());
+        System.out.println("method: getQuizByCategoryService");
+        return quizSet.stream()
                 .limit(5)
-                .collect(Collectors.toList())
-                .forEach(question -> stringBuilder
-                        .append(question.getId())
-                        .append(": pytanie: ")
-                        .append(question.getContent())
-                        .append(": prawidlowa odpowiedź   ")
-                        .append(question.getTrueAnswer())
-                        .append("<br>"));
-        System.out.println("method: getQuiz");
-        return stringBuilder.toString();
+                .map(ModelMapper::mapQuestionEntityToQuestionDto)
+                .collect(Collectors.toSet());
     }
 
     public int evaluateAnswers(Map<String, String> allParameters) {
@@ -76,5 +45,11 @@ public class QuizService {
         }
         System.out.println("number of correct answers: " + counter);
         return counter;
+    }
+
+    public List <Category> getCategories () {
+        ArrayList<Category> categories = new ArrayList<>(EnumSet.allOf(Category.class));
+        System.out.println(categories);
+        return categories;
     }
 }
