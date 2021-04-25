@@ -22,7 +22,7 @@ public class QuizController {
     @RequestMapping("/main")
     public String getQuizMenu(Model model) {
         model.addAttribute("categories", quizService.getCategories());
-        return "/main";
+        return "main";
     }
 
     @PostMapping("/quiz/results")
@@ -36,7 +36,7 @@ public class QuizController {
     public String attemptQuiz (@RequestParam String category,Model model) {
         Set<QuestionDTO> quizByCategoryService = quizService.getQuizByCategoryService(category);
         model.addAttribute("questions", quizByCategoryService);
-        return "/quizForm";
+        return "quizForm";
     }
 
     //fix path, because when u typ "main.html", server thinks that is a category and try to get quiz by category
