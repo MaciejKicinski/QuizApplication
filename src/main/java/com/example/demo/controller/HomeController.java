@@ -8,10 +8,10 @@ public class HomeController {
 
     @GetMapping("/home")
     public String getHomePage() {
-        return "/home";
+        return "home";
     }
     @GetMapping("/")
     public String getHomePage2() {
-        return "/home";
+        return "home";
     }
 }
