@@ -24,19 +24,18 @@
         </div>
     </div>
 </div>
-<div text-aligne="center">
-<form method="post" th:action="@{/quiz/quizAttempt}">
-	<select class="custom-select" id="selectCategory" name="category">
+<div class="center">
+    <form method="post" th:action="@{/quiz/quizAttempt}">
+        <select class="custom-select" id="selectCategory" name="category">
 
-		<option selected th:value="${cat}">Click to see categories...</option>
-		<option th:each="cat : ${categories}" th:value="${cat}" th:text="${cat}">cat</option>
+            <option selected th:value="${cat}">Click to see categories...</option>
+            <option th:each="cat : ${categories}" th:value="${cat}" th:text="${cat}">cat</option>
 
-	</select>
-    <button type="submit" class="btn btn-primary">Start quiz</button>
-</form>
+        </select>
+        <button type="submit" class="btn btn-primary">Start quiz</button>
+    </form>
 </div>
-
-    <div class="footer">
+<div class="footer">
     The property of &copy; Matthias K
 </div>
 </body>

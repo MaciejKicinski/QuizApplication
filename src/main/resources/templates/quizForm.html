@@ -26,8 +26,9 @@
 
     <div class="wall">
         <div class="window">
-            <div class="content">
-                <form th:action="@{/quiz/results/}" method="post">
+            <form th:action="@{/quiz/results/}" method="post">
+                <div class="center">
+
                     <th:block th:each="question : ${questions}">
                         <tr>
                             <td th:text="${question.id}"></td>
@@ -53,11 +54,10 @@
                                for="defaultChecked"></label>
                         <br/>
                     </th:block>
-                    <input type="submit" class="btn btn-primary mt-2 mb-4" value="Submit">
-                </form>
-                <br/>
-
-            </div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-2 mb-4" value="Submit">Submit</button>
+            </form>
+            <br/>
         </div>
     </div>
 </div>

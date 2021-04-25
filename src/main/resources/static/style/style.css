@@ -251,4 +251,8 @@ button:hover
 	padding: 20px;
 	position: relative;
 }
-
+.center {
+	margin: auto;
+	width: 50%;
+	padding: 10px;
+}
