@@ -1,60 +1,38 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org"
-	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <head>
-	<meta charset="utf-8"/>
-	<title>Registration</title>
-	<meta name="description" content="Registration" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-	<link rel="stylesheet" th:href="@{/style/style.css}" type="text/css" />
+    <th:block th:insert="fragments/imports :: head"></th:block>
 </head>
-
-	
 <body>
-	<div id="container">
-		<div id="pasek">
-			<div id= "nav">
-				<div class="logo"><h1>Quizzes and answers</h1></div>
-				<div class="menu"><a th:href ="@{/home}" class="startlink">Home</a></div>
-				<div class="menu"><a th:href ="@{/addQuiz}" class="startlink">Add quiz</a></div>
-				<div class="menu"><a th:href ="@{/registration}" class="startlink">Register</a></div>
-				<div class="menu"><a th:href ="@{/login}" class="startlink">Log in</a></div>
-				<div style="clear: both;"></div>
-			</div>
-		</div>
-	
-	
-		<div class="wall">
-			<div class="windowreg">
+<th:block th:insert="fragments/components :: navBar"></th:block>
+<th:block th:insert="fragments/components :: soon"></th:block>
+            <!--
+            <div class="windowreg">
                 <p th:text="${message}" />
-				<form th:action="@{/registration}" method="post" th:object="${form}">
-				<label>Login</label>
-					<input th:type="text" th:field="*{login}"/>
-					<div th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Name Error</div>
-					<br/>
-					<label>Password</label>
-					<input th:type="text" th:field="*{password}"/>
-					<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Name Error</div>
-					<br/>
-					<label>Repeated password</label>
-					<input th:type="text" th:field="*{repeatedPassword}"/>
-					<div th:if="${#fields.hasErrors('repeatedPassword')}" th:errors="*{repeatedPassword}">Repeated password
-					</div>
-					<br/>
-					<label>Username</label>
-					<input th:type="text" th:field="*{userName}"/>
-					<div th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">User name</div>
-					<br/>
-					<button th:type="submit">Sign in</button>
+                <form th:action="@{/registration}" method="post" th:object="${form}">
+                <label>Login</label>
+                    <input th:type="text" th:field="*{login}"/>
+                    <div th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Name Error</div>
+                    <br/>
+                    <label>Password</label>
+                    <input th:type="text" th:field="*{password}"/>
+                    <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Name Error</div>
+                    <br/>
+                    <label>Repeated password</label>
+                    <input th:type="text" th:field="*{repeatedPassword}"/>
+                    <div th:if="${#fields.hasErrors('repeatedPassword')}" th:errors="*{repeatedPassword}">Repeated password
+                    </div>
+                    <br/>
+                    <label>Username</label>
+                    <input th:type="text" th:field="*{userName}"/>
+                    <div th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">User name</div>
+                    <br/>
+                    <button th:type="submit">Sign in</button>
                 </form>
             </div>
-		</div>
-		<div class="footer">
-		The property of &copy; Igor & Maciek & Pavel
-		</div>
-	</div>
+            -->
+<th:block th:insert="fragments/components :: footer"></th:block>
 </body>
-
 </html>
 

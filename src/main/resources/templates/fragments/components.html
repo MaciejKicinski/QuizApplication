@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<th:block th:fragment="navBar">
+    <div id="container">
+        <div id="pasek">
+            <div id="nav">
+                <div class="logo"><h1>Quizzes and answers</h1></div>
+                <div class="menu"><a th:href="@{/main}" class="startlink">Home</a></div>
+                <div class="menu"><a th:href="@{/quiz/addQuiz}" class="startlink">Add quiz</a></div>
+                <div class="menu"><a th:href="@{/registration}" class="startlink">Register</a></div>
+                <div class="menu"><a th:href="@{/login}" class="startlink">Log in</a></div>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+    </div>
+</th:block>
+
+<th:block th:fragment="soon">
+    <div class="wall">
+        <div class="window">
+            <div class="center">
+                <label>soon</label>
+            </div>
+        </div>
+    </div>
+</th:block>
+
+<th:block th:fragment="footer">
+    <div class="footer">
+        The property of &copy; Matthias K
+    </div>
+</th:block>
+</body>
+
+</html>

@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <head>>
-<head>
-    <meta charset="UTF-8">
-    <title>Page</title>
-</head>
+    <head>
+        <th:block th:insert="fragments/imports :: head"></th:block>
+    </head>
 <body>
-<th:block th:each="question : ${questions}">
-    <tr>
-        <td th:text="${question.id}"></td>
-        <td th:text="${question.content}"></td>
-        <td th:text="${question.answer1}"></td>
-        <td th:text="${question.answer2}"></td>
-        <td th:text="${question.answer3}"></td>
-        <br>
-    </tr>
-</th:block>
+<th:block th:insert="fragments/components :: navBar"></th:block>
+<th:block th:insert="fragments/components :: soon"></th:block>
+            <!--
+    <th:block th:each="question : ${questions}">
+        <tr>
+            <td th:text="${question.id}"></td>
+            <td th:text="${question.content}"></td>
+            <td th:text="${question.answer1}"></td>
+            <td th:text="${question.answer2}"></td>
+            <td th:text="${question.answer3}"></td>
+            <br>
+        </tr>
+    </th:block>
+    -->
+<th:block th:insert="fragments/components :: footer"></th:block>
 </body>
 </html>

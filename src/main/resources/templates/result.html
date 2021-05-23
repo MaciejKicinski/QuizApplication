@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert="fragments/imports :: head"></th:block>
+</head>
+<body>
+<th:block th:insert="fragments/components :: navBar"></th:block>
+<div class="wall">
+    <div class="center">
+        <div class="window">
+            <div class="container-fluid">
+                <p>Liczba prawidłowych odpowiedzi to:</p>
+                <p th:text="${correctAnswers}">...</p>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block th:insert="fragments/components :: footer"></th:block>
+
+</body>
+
+</html>
+

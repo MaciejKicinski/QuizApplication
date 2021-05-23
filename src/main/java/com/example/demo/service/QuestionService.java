@@ -23,26 +23,16 @@ public class QuestionService {
 
     @PostConstruct
     void init() {
-        QuestionEntity question1 = new QuestionEntity("pytanie 1", "odp1", "odp2", "odp3", "odp1", Category.JAVA);
-        QuestionEntity question2 = new QuestionEntity("pytanie 2", "odp1", "odp2", "odp3", "odp3", Category.JAVA);
-        QuestionEntity question3 = new QuestionEntity("pytanie 3", "odp1", "odp2", "odp3", "odp2", Category.JAVA);
-        QuestionEntity question4 = new QuestionEntity("pytanie 4", "odp1", "odp2", "odp3", "odp1", Category.JAVA);
-        QuestionEntity question5 = new QuestionEntity("pytanie 5", "odp1", "odp2", "odp3", "odp3", Category.JAVA);
-        QuestionEntity question6 = new QuestionEntity("pytanie 6", "odp1", "odp2", "odp3", "odp3", Category.HISTORY);
-        QuestionEntity question7 = new QuestionEntity("pytanie 7", "odp1", "odp2", "odp3", "odp3", Category.GEOGRAPHY);
-        QuestionEntity question8 = new QuestionEntity("Wojciech Stawowy czy Wojciech Schabowy kto prowadzil miedzy innymi Arke i Cracovie?", "odp1", "odp2", "odp3", "odp3", Category.COOKING);
-        QuestionEntity question9 = new QuestionEntity("Ja to sie nie wpierdalam czy nie wpraszam? Jak swoja szkoleniowa taktyke opisywal Pawel Janas", "odp1", "odp2", "odp3", "odp3", Category.SAVOIR_VIVRE);
-        QuestionEntity question10 = new QuestionEntity("Franciszek Smuda to trener skuteczny. Zapowiedzial walke o spadek i rzeczywiscie spadl. Z jakim klubem?", "Arka Gdynia", "Łks", "odp3", "odp3", Category.POLISH_LANGUAGE);
+        QuestionEntity question1 = new QuestionEntity("Jakie są różnice pomiędzy typem primitywnym a typem obiektowym?", "nie ma różnic", "typ primitywny dziedziczy po klasie Object", "typy obiektowe przechowują dane oraz zachowania", "typy obiektowe przechowują dane oraz zachowania", Category.JAVA);
+        QuestionEntity question2 = new QuestionEntity("Do czego służy import statyczny?", "umożliwia dostęp do statycznych metod oraz pól klasy po odwołaniu się po nazwie klasy", "pozwala również na dostęp do elemnetów statycznych eksportowanych", "pozwala na dostęp do pól i metod dynamicznych", "umożliwia dostęp do statycznych metod oraz pól klasy po odwołaniu się po nazwie klasy", Category.JAVA);
+        QuestionEntity question3 = new QuestionEntity("Czy interfejs może być oznaczony jako finalny?", "nie", "tak", "zależy od rodzaju interfejsu", "nie", Category.JAVA);
+        QuestionEntity question4 = new QuestionEntity("Czy metoda w interjesie może być prywatna?", "nie", "tak", "zależy od wersji javy", "nie", Category.JAVA);
+        QuestionEntity question5 = new QuestionEntity("Jak zablokować dziedziczenie?", "oznaczyć jako final", "oznaczyć jako finally", "oznaczyć jako finalize", "oznaczyć jako final", Category.JAVA);
         questionRepository.save(question1);
         questionRepository.save(question2);
         questionRepository.save(question3);
         questionRepository.save(question4);
         questionRepository.save(question5);
-        questionRepository.save(question6);
-        questionRepository.save(question7);
-        questionRepository.save(question8);
-        questionRepository.save(question9);
-        questionRepository.save(question10);
     }
 
     public List<QuestionDTO> getAllQuestionsService() {

@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Set;
 
 @Controller
+@RequestMapping("/quiz")
 public class QuizController {
 
     private final QuizService quizService;
@@ -19,20 +20,16 @@ public class QuizController {
         this.quizService = quizService;
     }
 
-    @RequestMapping("/main")
-    public String getQuizMenu(Model model) {
-        model.addAttribute("categories", quizService.getCategories());
-        return "main";
-    }
 
-    @PostMapping("/quiz/results")
+
+    @PostMapping("/results")
     public String getResult(@RequestParam Map<String, String> allParameters, Model model) {
         int correctAnswers = quizService.evaluateAnswers(allParameters);
         model.addAttribute("correctAnswers", correctAnswers);
-        return "evaluate";
+        return "result";
     }
 
-    @PostMapping("/quiz/quizAttempt")
+    @PostMapping("/quizAttempt")
     public String attemptQuiz (@RequestParam String category,Model model) {
         Set<QuestionDTO> quizByCategoryService = quizService.getQuizByCategoryService(category);
         model.addAttribute("questions", quizByCategoryService);
@@ -40,11 +37,16 @@ public class QuizController {
     }
 
     //fix path, because when u typ "main.html", server thinks that is a category and try to get quiz by category
-    @RequestMapping("/quiz/{category}")
+    @RequestMapping("/{category}")
     private ModelAndView getQuizByCategory(@PathVariable String category) {
         ModelAndView mnv = new ModelAndView("quizForm");
         Set<QuestionDTO> questionDTOSet = quizService.getQuizByCategoryService(category);
         mnv.addObject("questions", questionDTOSet);
+        return mnv;
+    }
+    @GetMapping("/addQuiz")
+    private ModelAndView addQuiz() {
+        ModelAndView mnv = new ModelAndView("addQuiz");
         return mnv;
     }
 }

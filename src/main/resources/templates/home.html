@@ -1,38 +1,18 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org"
-	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <head>
-	<meta charset="UTF-8">
-	<title>Add quiz</title>
-	<meta name="description" content="Add quiz" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-	<link rel="stylesheet" th:href="@{/style/style.css}" type="text/css" />
+    <th:block th:insert="fragments/imports :: head"></th:block>
 </head>
-
-	
 <body>
-	<div id="container">
-		<div id="pasek">
-			<div id= "nav">
-				<div class="logo"><h1>Quizzes and answers</h1></div>
-				<div class="menu"><a th:href ="@{/home}" class="startlink">Home</a></div>
-				<div class="menu"><a th:href ="@{/addQuiz}" class="startlink">Add quiz</a></div>
-				<div class="menu"><a th:href ="@{/registration}" class="startlink">Register</a></div>
-				<div class="menu"><a th:href ="@{/login}" class="startlink">Log in</a></div>
-				<div style="clear: both;"></div>
-			</div>
-		</div>
-		<div class="wall">
-			<div class="start">
-				<a th:href ="@{/main}" class="startlink">Click to start</a>
-			</div>
-		</div>
-	</div>
-	<div class="footer">
-		The property of &copy; Matthias K
-	</div>
+<th:block th:insert="fragments/components :: navBar"></th:block>
+<div class="wall">
+    <div class="start">
+        <a th:href="@{/main}" class="startlink">Click to start</a>
+    </div>
+</div>
+</div>
+<th:block th:insert="fragments/components :: footer"></th:block>
 </body>
 
 </html>
