@@ -2,16 +2,16 @@
 
 ## Demo
 
-[HEROKU live demo](https://thebestquizapp.herokuapp.com)
+[HEROKU live demo](https://thebestquizapp.herokuapp.com) 
 
-## TODO
+## Built With
 
-* add quiz form
-* login
-* registration
-* type of trueAnswer 
-* "click to see categories" error handler
-* add second for:each in quizForm.html
+* [Maven](https://maven.apache.org/) - Dependency Management
+* [Spring Framework 5](https://spring.io/) - Spring boot, security, data, mvc
+* [Bootstrap](https://getbootstrap.com/) - Front styling
+* [H2 Database](https://www.h2database.com/html/main.html) - Database
+
+
 ## screenshots
 
 home page:
@@ -21,10 +21,16 @@ main page:
 ![image](https://user-images.githubusercontent.com/53364841/119565432-379c1d00-bdaa-11eb-8203-add22149317e.png)
 
 quiz form page:
-![image]()
+![image](https://user-images.githubusercontent.com/53364841/120908576-d575ce80-c66b-11eb-8d7c-3c4a0aaeedff.png)
 
-xxx:
-![image]()
+result page:
+![image](https://user-images.githubusercontent.com/53364841/120908594-0ce47b00-c66c-11eb-94a2-595919c1ff49.png)
 
-xxx:
-![image]()
+## TODO
+
+* add quiz form
+* login
+* registration
+* type of trueAnswer
+* "click to see categories" error handler
+* add second for:each in quizForm.html
