@@ -13,14 +13,11 @@ import java.util.Set;
 @Controller
 @RequestMapping("/quiz")
 public class QuizController {
-
     private final QuizService quizService;
 
     public QuizController(QuizService quizService) {
         this.quizService = quizService;
     }
-
-
 
     @PostMapping("/results")
     public String getResult(@RequestParam Map<String, String> allParameters, Model model) {
@@ -44,6 +41,7 @@ public class QuizController {
         mnv.addObject("questions", questionDTOSet);
         return mnv;
     }
+
     @GetMapping("/addQuiz")
     private ModelAndView addQuiz() {
         ModelAndView mnv = new ModelAndView("addQuiz");

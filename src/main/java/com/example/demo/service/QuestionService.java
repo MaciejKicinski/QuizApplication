@@ -23,11 +23,11 @@ public class QuestionService {
 
     @PostConstruct
     void init() {
-        QuestionEntity question1 = new QuestionEntity("Jakie są różnice pomiędzy typem primitywnym a typem obiektowym?", "nie ma różnic", "typ primitywny dziedziczy po klasie Object", "typy obiektowe przechowują dane oraz zachowania", "typy obiektowe przechowują dane oraz zachowania", Category.JAVA);
-        QuestionEntity question2 = new QuestionEntity("Do czego służy import statyczny?", "umożliwia dostęp do statycznych metod oraz pól klasy po odwołaniu się po nazwie klasy", "pozwala również na dostęp do elemnetów statycznych eksportowanych", "pozwala na dostęp do pól i metod dynamicznych", "umożliwia dostęp do statycznych metod oraz pól klasy po odwołaniu się po nazwie klasy", Category.JAVA);
-        QuestionEntity question3 = new QuestionEntity("Czy interfejs może być oznaczony jako finalny?", "nie", "tak", "zależy od rodzaju interfejsu", "nie", Category.JAVA);
-        QuestionEntity question4 = new QuestionEntity("Czy metoda w interjesie może być prywatna?", "nie", "tak", "zależy od wersji javy", "nie", Category.JAVA);
-        QuestionEntity question5 = new QuestionEntity("Jak zablokować dziedziczenie?", "oznaczyć jako final", "oznaczyć jako finally", "oznaczyć jako finalize", "oznaczyć jako final", Category.JAVA);
+        QuestionEntity question1 = new QuestionEntity("Jakie są różnice pomiędzy typem primitywnym a typem obiektowym?", "Nie ma różnic", "Typ primitywny dziedziczy po klasie Object", "Typy obiektowe przechowują dane oraz zachowania", "Typy obiektowe przechowują dane oraz zachowania", Category.JAVA);
+        QuestionEntity question2 = new QuestionEntity("Do czego służy import statyczny?", "Umożliwia dostęp do statycznych metod oraz pól klasy po odwołaniu się po nazwie klasy", "Pozwala również na dostęp do elemnetów statycznych eksportowanych", "Pozwala na dostęp do pól i metod dynamicznych", "Umożliwia dostęp do statycznych metod oraz pól klasy po odwołaniu się po nazwie klasy", Category.JAVA);
+        QuestionEntity question3 = new QuestionEntity("Czy interfejs może być oznaczony jako finalny?", "Nie", "tak", "Zależy od rodzaju interfejsu", "Nie", Category.JAVA);
+        QuestionEntity question4 = new QuestionEntity("Czy metoda w interjesie może być prywatna?", "Nie", "Tak", "Zależy od wersji javy", "Nie", Category.JAVA);
+        QuestionEntity question5 = new QuestionEntity("Jak zablokować dziedziczenie?", "Oznaczyć jako final", "Oznaczyć jako finally", "Oznaczyć jako finalize", "Oznaczyć jako final", Category.JAVA);
         questionRepository.save(question1);
         questionRepository.save(question2);
         questionRepository.save(question3);

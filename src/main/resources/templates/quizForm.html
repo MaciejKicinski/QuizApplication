@@ -8,8 +8,8 @@
 <th:block th:insert="fragments/components :: navBar"></th:block>
 <div class="wall">
     <div class="window-form">
-        <form th:action="@{/quiz/results/}" method="post">
-            <div class="center-form">
+        <form class="custom-form" th:action="@{/quiz/results/}" method="post">
+            <div class="question-list">
                 <th:block th:each="question,iterStat : ${questions}">
                     <div class="question">
                         <tr th:st>
@@ -18,26 +18,27 @@
                             <br/>
                         </tr>
                     </div>
+                    <div class="answer">
                     <input type="radio"
                            th:name="${question.id}"
                            th:value="${question.answer1}"/>
-                    <label th:text="${question.answer1}"
-                           for="defaultChecked"></label>
+                    <p class="que" th:text="${question.answer1}"></p>
                     <br/>
-
+                    </div>
+                    <div class="answer">
                     <input type="radio"
                            th:name="${question.id}"
                            th:value="${question.answer2}"/>
-                    <label th:text="${question.answer2}"
-                           for="defaultChecked"></label>
+                    <p class="que" th:text="${question.answer2}"></p>
                     <br/>
-
+                    </div>
+                    <div class="answer">
                     <input id="defaultChecked" type="radio"
                            th:name="${question.id}"
                            th:value="${question.answer3}"/>
-                    <label th:text="${question.answer3}"
-                           for="defaultChecked"></label>
+                    <p class="que" th:text="${question.answer3}"></p>
                     <br/>
+                    </div>
                 </th:block>
             </div>
             <button type="submit" class="btn-primary" value="Submit">Submit</button>
