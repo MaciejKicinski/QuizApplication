@@ -14,7 +14,7 @@ You can check your knowledge of java
 * [Bootstrap](https://getbootstrap.com/) - Front styling
 * [H2 Database](https://www.h2database.com/html/main.html) - Database
 
-## screenshots
+## Screenshots
 
 **home page:**
 ![image](https://user-images.githubusercontent.com/53364841/119564860-87c6af80-bda9-11eb-83ef-aeab85aaa562.png)
@@ -30,6 +30,7 @@ You can check your knowledge of java
 
 ## TODO
 
+* tests
 * add quiz form
 * login
 * registration
