@@ -26,7 +26,7 @@ public class QuestionService {
         QuestionEntity question1 = new QuestionEntity("Jakie są różnice pomiędzy typem primitywnym a typem obiektowym?", "Nie ma różnic", "Typ primitywny dziedziczy po klasie Object", "Typy obiektowe przechowują dane oraz zachowania", "Typy obiektowe przechowują dane oraz zachowania", Category.JAVA);
         QuestionEntity question2 = new QuestionEntity("Do czego służy import statyczny?", "Umożliwia dostęp do statycznych metod oraz pól klasy po odwołaniu się po nazwie klasy", "Pozwala również na dostęp do elemnetów statycznych eksportowanych", "Pozwala na dostęp do pól i metod dynamicznych", "Umożliwia dostęp do statycznych metod oraz pól klasy po odwołaniu się po nazwie klasy", Category.JAVA);
         QuestionEntity question3 = new QuestionEntity("Czy interfejs może być oznaczony jako finalny?", "Nie", "tak", "Zależy od rodzaju interfejsu", "Nie", Category.JAVA);
-        QuestionEntity question4 = new QuestionEntity("Czy metoda w interjesie może być prywatna?", "Nie", "Tak", "Zależy od wersji javy", "Nie", Category.JAVA);
+        QuestionEntity question4 = new QuestionEntity("Czy metoda w interjesie może być prywatna?", "Nie", "Tak", "Zależy od wersji javy", "Zależy od wersji javy", Category.JAVA);
         QuestionEntity question5 = new QuestionEntity("Jak zablokować dziedziczenie?", "Oznaczyć jako final", "Oznaczyć jako finally", "Oznaczyć jako finalize", "Oznaczyć jako final", Category.JAVA);
         questionRepository.save(question1);
         questionRepository.save(question2);
